@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { Cart } from "@/types";
-import { cartService } from "@/services/cart.service";
+import { cartService } from "@/services/cart";
 
 interface CartState {
   cart: Cart | null;
