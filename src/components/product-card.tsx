@@ -1,20 +1,15 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { Product } from '@/types';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { PriceTag } from './price-tag';
-import { useCartStore } from '@/store/cart-store';
+import { AddToCartButton } from './add-to-cart-button';
 
 interface ProductCardProps {
     product: Product;
 }
 
 export function ProductCard({ product }: ProductCardProps) {
-    const addToCart = useCartStore((state) => state.addToCart);
-
     return (
         <Card className="flex flex-col h-full overflow-hidden hover:shadow-lg transition-shadow">
             <div className="relative w-full h-48 bg-muted">
@@ -39,12 +34,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 />
             </CardContent>
             <CardFooter>
-                <Button
-                    className="w-full"
-                    onClick={() => addToCart(product.id)}
-                >
-                    Adicionar ao Carrinho
-                </Button>
+                <AddToCartButton product={product} className="w-full" />
             </CardFooter>
         </Card>
     );

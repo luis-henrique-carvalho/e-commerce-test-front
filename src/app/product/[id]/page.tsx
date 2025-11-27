@@ -1,52 +1,25 @@
-'use client';
-
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { useParams } from 'next/navigation';
 import { productService } from '@/services/products.service';
-import { Product } from '@/types';
-import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { PriceTag } from '@/components/price-tag';
-import { useCartStore } from '@/store/cart-store';
-import { Skeleton } from '@/components/ui/skeleton';
+import { AddToCartButton } from '@/components/add-to-cart-button';
 
-export default function ProductPage() {
-    const params = useParams();
-    const [product, setProduct] = useState<Product | null>(null);
-    const [loading, setLoading] = useState(true);
-    const addToCart = useCartStore((state) => state.addToCart);
+interface ProductPageProps {
+    params: Promise<{
+        id: string;
+    }>;
+}
 
-    useEffect(() => {
-        const fetchProduct = async () => {
-            try {
-                const data = await productService.getById(params.id as string);
-                setProduct(data);
-            } catch (error) {
-                console.error('Failed to fetch product', error);
-            } finally {
-                setLoading(false);
-            }
-        };
+export default async function ProductPage({ params }: ProductPageProps) {
+    const { id } = await params;
 
-        if (params.id) {
-            fetchProduct();
-        }
-    }, [params.id]);
+    let product = null;
 
-    if (loading) {
-        return (
-            <div className="grid md:grid-cols-2 gap-8">
-                <Skeleton className="h-[400px] w-full rounded-lg" />
-                <div className="space-y-4">
-                    <Skeleton className="h-8 w-3/4" />
-                    <Skeleton className="h-4 w-full" />
-                    <Skeleton className="h-4 w-full" />
-                    <Skeleton className="h-10 w-32" />
-                </div>
-            </div>
-        );
+    try {
+        product = await productService.getById(id);
+    } catch (error) {
+        console.error('Failed to fetch product', error);
     }
 
     if (!product) {
@@ -88,13 +61,11 @@ export default function ProductPage() {
                 </div>
 
                 <div className="pt-6 mt-auto">
-                    <Button
+                    <AddToCartButton
+                        product={product}
                         size="lg"
                         className="w-full md:w-auto min-w-[200px]"
-                        onClick={() => addToCart(product.id)}
-                    >
-                        Adicionar ao Carrinho
-                    </Button>
+                    />
                 </div>
             </div>
         </div>
