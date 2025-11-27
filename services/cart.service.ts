@@ -1,4 +1,4 @@
-import { api } from "./api";
+import { api } from "../lib/api";
 import { ApiResponse, Cart } from "@/types";
 
 export const cartService = {

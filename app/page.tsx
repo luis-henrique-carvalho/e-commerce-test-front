@@ -1,4 +1,4 @@
-import { productService } from '@/services/products';
+import { productService } from '@/services/products.service';
 import { ProductCard } from '@/components/product-card';
 
 export default async function Home() {

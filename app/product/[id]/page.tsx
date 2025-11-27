@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
-import { productService } from '@/services/products';
+import { productService } from '@/services/products.service';
 import { Product } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
