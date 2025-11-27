@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { Trash2, ShoppingCart } from 'lucide-react';
+import { Trash2, ShoppingCart, Plus, Minus } from 'lucide-react';
 import { useCartStore } from '@/store/cart-store';
 import { formatCurrency } from '@/lib/utils';
 import {
@@ -22,6 +22,7 @@ export function CartSidebar() {
         cart,
         isOpen,
         setIsOpen,
+        addToCart,
         removeFromCart,
         fetchCart,
         isLoading
@@ -72,9 +73,29 @@ export function CartSidebar() {
                                                 <h4 className="font-medium line-clamp-2 text-sm">
                                                     {item.product.name}
                                                 </h4>
-                                                <p className="text-sm text-muted-foreground">
-                                                    Qtd: {item.quantity}
-                                                </p>
+                                                <div className="flex items-center gap-2 mt-2">
+                                                    <Button
+                                                        variant="outline"
+                                                        size="icon"
+                                                        className="h-6 w-6"
+                                                        onClick={() => addToCart(item.product.id, -1)}
+                                                        disabled={isLoading || item.quantity <= 1}
+                                                    >
+                                                        <Minus className="h-3 w-3" />
+                                                    </Button>
+                                                    <span className="text-sm font-medium min-w-[2ch] text-center">
+                                                        {item.quantity}
+                                                    </span>
+                                                    <Button
+                                                        variant="outline"
+                                                        size="icon"
+                                                        className="h-6 w-6"
+                                                        onClick={() => addToCart(item.product.id, 1)}
+                                                        disabled={isLoading}
+                                                    >
+                                                        <Plus className="h-3 w-3" />
+                                                    </Button>
+                                                </div>
                                             </div>
                                             <div className="flex items-center justify-between">
                                                 <span className="font-bold">
