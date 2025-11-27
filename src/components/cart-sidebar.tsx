@@ -9,6 +9,7 @@ import {
     SheetContent,
     SheetHeader,
     SheetTitle,
+    SheetDescription,
     SheetTrigger,
     SheetFooter,
 } from '@/components/ui/sheet';
@@ -47,6 +48,9 @@ export function CartSidebar() {
             <SheetContent className="w-full sm:max-w-md p-4 flex flex-col">
                 <SheetHeader>
                     <SheetTitle>Seu Carrinho</SheetTitle>
+                    <SheetDescription className="sr-only">
+                        Gerencie os itens do seu carrinho de compras
+                    </SheetDescription>
                 </SheetHeader>
 
                 <div className="flex-1 overflow-hidden mt-4">
