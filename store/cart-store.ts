@@ -1,6 +1,6 @@
-import { create } from 'zustand';
-import { Cart } from '@/types';
-import { cartService } from '@/services/cart.service';
+import { create } from "zustand";
+import { Cart } from "@/types";
+import { cartService } from "@/services/cart.service";
 
 interface CartState {
   cart: Cart | null;
@@ -24,7 +24,7 @@ export const useCartStore = create<CartState>((set, get) => ({
       const cart = await cartService.getCart();
       set({ cart });
     } catch (error) {
-      console.error('Failed to fetch cart:', error);
+      console.error("Failed to fetch cart:", error);
     } finally {
       set({ isLoading: false });
     }
@@ -37,7 +37,7 @@ export const useCartStore = create<CartState>((set, get) => ({
       await get().fetchCart();
       set({ isOpen: true }); // Open sidebar on add
     } catch (error) {
-      console.error('Failed to add to cart:', error);
+      console.error("Failed to add to cart:", error);
     } finally {
       set({ isLoading: false });
     }
@@ -49,7 +49,7 @@ export const useCartStore = create<CartState>((set, get) => ({
       await cartService.removeFromCart(itemId);
       await get().fetchCart();
     } catch (error) {
-      console.error('Failed to remove from cart:', error);
+      console.error("Failed to remove from cart:", error);
     } finally {
       set({ isLoading: false });
     }
