@@ -43,7 +43,7 @@ export function CartSidebar() {
                     )}
                 </Button>
             </SheetTrigger>
-            <SheetContent className="w-full sm:max-w-md flex flex-col">
+            <SheetContent className="w-full sm:max-w-md p-4 flex flex-col">
                 <SheetHeader>
                     <SheetTitle>Seu Carrinho</SheetTitle>
                 </SheetHeader>
