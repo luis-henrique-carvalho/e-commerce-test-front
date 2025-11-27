@@ -37,7 +37,7 @@ export const useCartStore = create<CartState>((set, get) => ({
     try {
       await cartService.addToCart(productId, quantity);
       await get().fetchCart();
-      set({ isOpen: true }); // Open sidebar on add
+      set({ isOpen: true });
     } catch (error) {
       console.error("Failed to add to cart:", error);
       toast.error("Failed to add to cart");

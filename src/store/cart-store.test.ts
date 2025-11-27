@@ -2,7 +2,6 @@ import { renderHook, act, waitFor } from "@testing-library/react";
 import { useCartStore } from "./cart-store";
 import { cartService } from "@/services/cart.service";
 
-// Mock the cart service
 jest.mock("@/services/cart.service", () => ({
   cartService: {
     getCart: jest.fn(),
@@ -60,7 +59,7 @@ describe("useCartStore", () => {
     });
 
     expect(cartService.addToCart).toHaveBeenCalledWith(1, 1);
-    expect(cartService.getCart).toHaveBeenCalled(); // Should refresh cart
+    expect(cartService.getCart).toHaveBeenCalled();
     expect(result.current.isOpen).toBe(true);
   });
 
