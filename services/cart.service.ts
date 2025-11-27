@@ -1,14 +1,14 @@
-import { api } from './api';
-import { ApiResponse, Cart } from '@/types';
+import { api } from "./api";
+import { ApiResponse, Cart } from "@/types";
 
 export const cartService = {
   getCart: async (): Promise<Cart> => {
-    const response = await api.get<ApiResponse<Cart>>('/cart');
+    const response = await api.get<ApiResponse<Cart>>("/cart");
     return response.data.data;
   },
 
   addToCart: async (productId: number, quantity: number = 1) => {
-    const response = await api.post<ApiResponse<any>>('/cart/add', {
+    const response = await api.post<ApiResponse<any>>("/cart/add", {
       productId,
       quantity,
     });

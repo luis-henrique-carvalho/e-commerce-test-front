@@ -1,5 +1,5 @@
-import { api } from './api';
-import { ApiResponse, Product } from '@/types';
+import { api } from "./api";
+import { ApiResponse, Product } from "@/types";
 
 export const productService = {
   getAll: async (): Promise<Product[]> => {
@@ -7,7 +7,7 @@ export const productService = {
     // Assuming it returns { status: "success", data: Product[] } based on the pattern
     // But the user only showed GET /api/products/:id response.
     // Usually list endpoints return an array in data.
-    const response = await api.get<ApiResponse<Product[]>>('/products');
+    const response = await api.get<ApiResponse<Product[]>>("/products");
     return response.data.data;
   },
 
