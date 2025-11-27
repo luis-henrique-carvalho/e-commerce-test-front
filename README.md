@@ -1,62 +1,62 @@
 # E-commerce Front-end Challenge
 
-Este projeto é a implementação do front-end para o desafio técnico de e-commerce, utilizando Next.js, TypeScript e shadcn/ui.
+This project is the implementation of the front-end for the e-commerce technical challenge, using Next.js, TypeScript, and shadcn/ui.
 
-## 🚀 Tecnologias Utilizadas
+## 🚀 Technologies Used
 
 - **Next.js 15** (App Router)
 - **TypeScript**
 - **Tailwind CSS**
-- **shadcn/ui** (Componentes de UI)
-- **Zustand** (Gerenciamento de estado global)
-- **Axios** (Cliente HTTP)
-- **Lucide React** (Ícones)
+- **shadcn/ui** (UI Components)
+- **Zustand** (Global state management)
+- **Axios** (HTTP Client)
+- **Lucide React** (Icons)
 
-## 🛠️ Pré-requisitos
+## 🛠️ Prerequisites
 
 - Node.js 18+
-- pnpm (recomendado) ou npm/yarn
-- Backend rodando na porta 3000 (ou configure a URL no `.env`)
+- pnpm (recommended) or npm/yarn
+- Backend running on port 3000 (or configure the URL in `.env`)
 
-## 📦 Instalação
+## 📦 Installation
 
-1. Clone o repositório
-2. Instale as dependências:
+1. Clone the repository
+2. Install dependencies:
 
 ```bash
 pnpm install
 ```
 
-3. Configure as variáveis de ambiente (opcional se o backend estiver em localhost:3000):
+3. Configure environment variables (optional if backend is on localhost:3000):
 
-Crie um arquivo `.env.local` na raiz:
+Create a `.env.local` file in the root:
 
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:3000/api
 ```
 
-## 🏃‍♂️ Rodando o Projeto
+## 🏃‍♂️ Running the Project
 
 ```bash
 pnpm dev
 ```
 
-O projeto estará disponível em `http://localhost:3001` (ou outra porta se a 3000 estiver ocupada pelo backend).
+The project will be available at `http://localhost:3001` (or another port if 3000 is occupied by the backend).
 
-## 📂 Estrutura do Projeto
+## 📂 Project Structure
 
-- `/app`: Páginas e layouts do Next.js
-- `/components`: Componentes React reutilizáveis
-  - `/ui`: Componentes do shadcn/ui
-- `/services`: Serviços de API (Axios)
-- `/store`: Gerenciamento de estado (Zustand)
-- `/types`: Definições de tipos TypeScript
-- `/lib`: Utilitários
+- `/app`: Next.js pages and layouts
+- `/components`: Reusable React components
+  - `/ui`: shadcn/ui components
+- `/services`: API services (Axios)
+- `/store`: State management (Zustand)
+- `/types`: TypeScript type definitions
+- `/lib`: Utilities
 
-## ✨ Funcionalidades
+## ✨ Features
 
-- **Listagem de Produtos**: Exibição de produtos em grid.
-- **Detalhes do Produto**: Página dedicada com informações detalhadas.
-- **Carrinho de Compras**: Sidebar interativa para gerenciar itens do carrinho.
-- **Adicionar/Remover**: Funcionalidade completa de carrinho.
-- **Responsividade**: Layout adaptável para mobile e desktop.
+- **Product Listing**: Display of products in a grid.
+- **Product Details**: Dedicated page with detailed information.
+- **Shopping Cart**: Interactive sidebar to manage cart items.
+- **Add/Remove**: Full cart functionality.
+- **Responsiveness**: Adaptive layout for mobile and desktop.
