@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { Cart } from "@/types";
 import { cartService } from "@/services/cart.service";
+import { toast } from "sonner";
 
 interface CartState {
   cart: Cart | null;
@@ -25,6 +26,7 @@ export const useCartStore = create<CartState>((set, get) => ({
       set({ cart });
     } catch (error) {
       console.error("Failed to fetch cart:", error);
+      toast.error("Failed to fetch cart");
     } finally {
       set({ isLoading: false });
     }
@@ -38,6 +40,7 @@ export const useCartStore = create<CartState>((set, get) => ({
       set({ isOpen: true }); // Open sidebar on add
     } catch (error) {
       console.error("Failed to add to cart:", error);
+      toast.error("Failed to add to cart");
     } finally {
       set({ isLoading: false });
     }
@@ -50,6 +53,7 @@ export const useCartStore = create<CartState>((set, get) => ({
       await get().fetchCart();
     } catch (error) {
       console.error("Failed to remove from cart:", error);
+      toast.error("Failed to remove from cart");
     } finally {
       set({ isLoading: false });
     }
